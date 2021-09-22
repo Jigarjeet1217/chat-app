@@ -1,0 +1,22 @@
+{
+    "sourceFile": "package.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1632323682308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1632323711870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,15 +13,15 @@\n     \"web-vitals\": \"^1.1.2\"\n   },\n   \"scripts\": {\n     \"start\": \"react-scripts start\",\n-    \"build\": \"react-scripts build\",\n+    \"build\": \"npm run clear && react-scripts build\",\n     \"test\": \"react-scripts test\",\n     \"eject\": \"react-scripts eject\",\n     \"lint\": \"eslint src/**/*.js\",\n-  \"format\": \"prettier --write src/**/*.js\",\n-  \"format:lint\": \"npm run format && npm run lint\",\n-  \"clear\": \"rimraf build\"\n+    \"format\": \"prettier --write src/**/*.js\",\n+    \"format:lint\": \"npm run format && npm run lint\",\n+    \"clear\": \"rimraf build\"\n   },\n   \"eslintConfig\": {\n     \"extends\": [\n       \"react-app\",\n"
+                }
+            ],
+            "date": 1632323682308,
+            "name": "Commit-0",
+            "content": "{\n  \"name\": \"chat-application\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"@testing-library/jest-dom\": \"^5.14.1\",\n    \"@testing-library/react\": \"^11.2.7\",\n    \"@testing-library/user-event\": \"^12.8.3\",\n    \"node-sass\": \"^4.14.1\",\n    \"react\": \"^17.0.2\",\n    \"react-dom\": \"^17.0.2\",\n    \"react-scripts\": \"4.0.3\",\n    \"web-vitals\": \"^1.1.2\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\",\n    \"lint\": \"eslint src/**/*.js\",\n  \"format\": \"prettier --write src/**/*.js\",\n  \"format:lint\": \"npm run format && npm run lint\",\n  \"clear\": \"rimraf build\"\n  },\n  \"eslintConfig\": {\n    \"extends\": [\n      \"react-app\",\n      \"react-app/jest\"\n    ]\n  },\n  \"browserslist\": {\n    \"production\": [\n      \">0.2%\",\n      \"not dead\",\n      \"not op_mini all\"\n    ],\n    \"development\": [\n      \"last 1 chrome version\",\n      \"last 1 firefox version\",\n      \"last 1 safari version\"\n    ]\n  },\n  \"devDependencies\": {\n    \"babel-eslint\": \"^10.1.0\",\n    \"eslint-config-airbnb\": \"^18.2.1\",\n    \"eslint-config-prettier\": \"^8.3.0\",\n    \"eslint-plugin-import\": \"^2.24.2\",\n    \"eslint-plugin-jsx-a11y\": \"^6.4.1\",\n    \"eslint-plugin-react\": \"^7.26.0\",\n    \"eslint-plugin-react-hooks\": \"^4.2.0\",\n    \"prettier\": \"^2.4.1\",\n    \"rimraf\": \"^3.0.2\"\n  }\n}\n"
+        }
+    ]
+}

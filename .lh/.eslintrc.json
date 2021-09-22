@@ -1,0 +1,18 @@
+{
+    "sourceFile": ".eslintrc",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1632323618076,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1632323618076,
+            "name": "Commit-0",
+            "content": "{\r\n  \"extends\": [\"eslint:recommended\", \"airbnb\", \"prettier\", \"prettier/react\"],\r\n  \"plugins\": [\"react-hooks\"],\r\n  \"env\": {\r\n    \"browser\": true\r\n  },\r\n  \"parser\": \"babel-eslint\",\r\n  \"rules\": {\r\n    \"no-plusplus\": [0],\r\n    \"react/jsx-filename-extension\": [1, { \"extensions\": [\".js\", \".jsx\"] }],\r\n    \"react/prop-types\": [0],\r\n    \"react/jsx-props-no-spreading\": [0],\r\n    \"import/prefer-default-export\": [0],\r\n    \"react/no-array-index-key\": [0],\r\n    \"react/no-danger\": [0],\r\n    \"no-param-reassign\": [0],\r\n    \"react-hooks/rules-of-hooks\": \"error\",\r\n    \"react-hooks/exhaustive-deps\": \"warn\"\r\n  }\r\n}"
+        }
+    ]
+}
