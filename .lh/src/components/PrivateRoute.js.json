@@ -1,0 +1,70 @@
+{
+    "sourceFile": "src/components/PrivateRoute.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 13,
+            "patches": [
+                {
+                    "date": 1632366681156,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1632366778140,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+import React from 'react';\r\n+\r\n+const PrivateRoute = () => {\r\n+  return <div></div>;\r\n+};\r\n+\r\n+export default PrivateRoute;\r\n"
+                },
+                {
+                    "date": 1632366801966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+import React from 'react';\r\n+\r\n+const PrivateRoute = ({ prop }) => {\r\n+  console.log(prop);\r\n+  return <div>PrivateRoute</div>;\r\n+};\r\n+\r\n+export default PrivateRoute;\r\n"
+                },
+                {
+                    "date": 1632366915718,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+import React from 'react';\r\n+\r\n+const PrivateRoute = ({ children, ...restProp }) => {\r\n+  console.log(children);\r\n+  return <div>PrivateRoute</div>;\r\n+};\r\n+\r\n+export default PrivateRoute;\r\n"
+                },
+                {
+                    "date": 1632366928127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,30 +1,9 @@\n import React from 'react';\r\n \r\n const PrivateRoute = ({ children, ...restProp }) => {\r\n   console.log(children);\r\n+  console.log(restProp);\r\n   return <div>PrivateRoute</div>;\r\n };\r\n \r\n export default PrivateRoute;\r\n-import React from 'react';\r\n-\r\n-const PrivateRoute = ({ prop }) => {\r\n-  console.log(prop);\r\n-  return <div>PrivateRoute</div>;\r\n-};\r\n-\r\n-export default PrivateRoute;\r\n-import React from 'react';\r\n-\r\n-const PrivateRoute = () => {\r\n-  return <div></div>;\r\n-};\r\n-\r\n-export default PrivateRoute;\r\n-import React from 'react';\r\n-\r\n-const PrivateRoute = () => {\r\n-  return <div>PrivateRoute</div>;\r\n-};\r\n-\r\n-export default PrivateRoute;\r\n"
+                },
+                {
+                    "date": 1632367336769,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React from 'react';\r\n \r\n const PrivateRoute = ({ children, ...restProp }) => {\r\n-  console.log(children);\r\n-  console.log(restProp);\r\n+  // Check for profile (loggged or not)\r\n+\r\n   return <div>PrivateRoute</div>;\r\n };\r\n \r\n export default PrivateRoute;\r\n"
+                },
+                {
+                    "date": 1632367375084,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,12 @@\n import React from 'react';\r\n \r\n const PrivateRoute = ({ children, ...restProp }) => {\r\n   // Check for profile (loggged or not)\r\n+  const profile = false;\r\n \r\n+  profile ? console.log('YES') : console.log('No');\r\n+\r\n   return <div>PrivateRoute</div>;\r\n };\r\n \r\n export default PrivateRoute;\r\n"
+                },
+                {
+                    "date": 1632367416526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,13 @@\n const PrivateRoute = ({ children, ...restProp }) => {\r\n   // Check for profile (loggged or not)\r\n   const profile = false;\r\n \r\n-  profile ? console.log('YES') : console.log('No');\r\n+  if (profile) {\r\n+    console.log('YES');\r\n+  } else {\r\n+    console.log('NO');\r\n+  }\r\n \r\n   return <div>PrivateRoute</div>;\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1632367449595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,11 @@\n   } else {\r\n     console.log('NO');\r\n   }\r\n \r\n+  console.log(children);\r\n+  console.log(restProp);\r\n+\r\n   return <div>PrivateRoute</div>;\r\n };\r\n \r\n export default PrivateRoute;\r\n"
+                },
+                {
+                    "date": 1632367461162,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n const PrivateRoute = ({ children, ...restProp }) => {\r\n   // Check for profile (loggged or not)\r\n   const profile = false;\r\n \r\n-  if (profile) {\r\n+  if (!profile) {\r\n     console.log('YES');\r\n   } else {\r\n     console.log('NO');\r\n   }\r\n"
+                },
+                {
+                    "date": 1632367499442,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n const PrivateRoute = ({ children, ...restProp }) => {\r\n   // Check for profile (loggged or not)\r\n   const profile = false;\r\n \r\n+  // If profile exist redirect to signin page\r\n   if (!profile) {\r\n     console.log('YES');\r\n   } else {\r\n     console.log('NO');\r\n"
+                },
+                {
+                    "date": 1632367522578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,19 @@\n+import React from 'react';\r\n+import { Redirect } from 'react-router';\r\n+\r\n+const PrivateRoute = ({ children, ...restProp }) => {\r\n+  // Check for profile (loggged or not)\r\n+  const profile = false;\r\n+\r\n+  // If profile exist redirect to signin page\r\n+  if (!profile) {\r\n+    return <Redirect to=\"/signin\" />;\r\n+  }\r\n+\r\n+  console.log(children);\r\n+  console.log(restProp);\r\n+\r\n+  return <div>PrivateRoute</div>;\r\n+};\r\n+\r\n+export default PrivateRoute;\r\n"
+                },
+                {
+                    "date": 1632367552894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from 'react';\r\n-import { Redirect } from 'react-router';\r\n+import { Redirect, Route } from 'react-router';\r\n \r\n const PrivateRoute = ({ children, ...restProp }) => {\r\n   // Check for profile (loggged or not)\r\n   const profile = false;\r\n@@ -9,31 +9,8 @@\n   if (!profile) {\r\n     return <Redirect to=\"/signin\" />;\r\n   }\r\n \r\n-  console.log(children);\r\n-  console.log(restProp);\r\n-\r\n-  return <div>PrivateRoute</div>;\r\n+  return <Route {...restProp}>{children}</Route>;\r\n };\r\n \r\n export default PrivateRoute;\r\n-import React from 'react';\r\n-\r\n-const PrivateRoute = ({ children, ...restProp }) => {\r\n-  // Check for profile (loggged or not)\r\n-  const profile = false;\r\n-\r\n-  // If profile exist redirect to signin page\r\n-  if (!profile) {\r\n-    console.log('YES');\r\n-  } else {\r\n-    console.log('NO');\r\n-  }\r\n-\r\n-  console.log(children);\r\n-  console.log(restProp);\r\n-\r\n-  return <div>PrivateRoute</div>;\r\n-};\r\n-\r\n-export default PrivateRoute;\r\n"
+                },
+                {
+                    "date": 1632367834356,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,8 @@\n const PrivateRoute = ({ children, ...restProp }) => {\r\n   // Check for profile (loggged or not)\r\n   const profile = false;\r\n \r\n-  // If profile exist redirect to signin page\r\n   if (!profile) {\r\n     return <Redirect to=\"/signin\" />;\r\n   }\r\n \r\n"
+                }
+            ],
+            "date": 1632366681156,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\n\r\nconst PrivateRoute = () => {\r\n  return <div>PrivateRoute</div>;\r\n};\r\n\r\nexport default PrivateRoute;\r\n"
+        }
+    ]
+}

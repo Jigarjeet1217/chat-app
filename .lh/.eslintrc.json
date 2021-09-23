@@ -3,11 +3,23 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1632323618076,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1632365463157,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,20 @@\n+{\r\n+  \"extends\": [\"eslint:recommended\", \"airbnb\", \"prettier\"],\r\n+  \"plugins\": [\"react-hooks\"],\r\n+  \"env\": {\r\n+    \"browser\": true\r\n+  },\r\n+  \"parser\": \"babel-eslint\",\r\n+  \"rules\": {\r\n+    \"no-plusplus\": [0],\r\n+    \"react/jsx-filename-extension\": [1, { \"extensions\": [\".js\", \".jsx\"] }],\r\n+    \"react/prop-types\": [0],\r\n+    \"react/jsx-props-no-spreading\": [0],\r\n+    \"import/prefer-default-export\": [0],\r\n+    \"react/no-array-index-key\": [0],\r\n+    \"react/no-danger\": [0],\r\n+    \"no-param-reassign\": [0],\r\n+    \"react-hooks/rules-of-hooks\": \"error\",\r\n+    \"react-hooks/exhaustive-deps\": \"warn\"\r\n+  }\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1632365543797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+{\r\n+  \"extends\": [\"eslint:recommended\", \"airbnb\", \"prettier\"],\r\n+  \"plugins\": [\"react-hooks\"],\r\n+  \"env\": {\r\n+    \"browser\": true\r\n+  },\r\n+  \"parser\": \"babel-eslint\",\r\n+  \"rules\": {\r\n+    \"no-plusplus\": [0],\r\n+    \"react/jsx-filename-extension\": [1, { \"extensions\": [\".js\", \".jsx\"] }],\r\n+    \"react/prop-types\": [0],\r\n+    \"react/jsx-props-no-spreading\": [0],\r\n+    \"import/prefer-default-export\": [0],\r\n+    \"react/no-array-index-key\": [0],\r\n+    \"react/no-danger\": [0],\r\n+    \"no-param-reassign\": [0],\r\n+    \"react-hooks/rules-of-hooks\": \"error\",\r\n+    \"react-hooks/exhaustive-deps\": \"warn\",\r\n+    \"arrow-body-style\": [0],\r\n+    \"prefer-arrow-callback\": [0]\r\n+  }\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1632365573114,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,45 +18,5 @@\n     \"react-hooks/exhaustive-deps\": \"warn\",\r\n     \"arrow-body-style\": [0],\r\n     \"prefer-arrow-callback\": [0]\r\n   }\r\n-}\n-{\r\n-  \"extends\": [\"eslint:recommended\", \"airbnb\", \"prettier\"],\r\n-  \"plugins\": [\"react-hooks\"],\r\n-  \"env\": {\r\n-    \"browser\": true\r\n-  },\r\n-  \"parser\": \"babel-eslint\",\r\n-  \"rules\": {\r\n-    \"no-plusplus\": [0],\r\n-    \"react/jsx-filename-extension\": [1, { \"extensions\": [\".js\", \".jsx\"] }],\r\n-    \"react/prop-types\": [0],\r\n-    \"react/jsx-props-no-spreading\": [0],\r\n-    \"import/prefer-default-export\": [0],\r\n-    \"react/no-array-index-key\": [0],\r\n-    \"react/no-danger\": [0],\r\n-    \"no-param-reassign\": [0],\r\n-    \"react-hooks/rules-of-hooks\": \"error\",\r\n-    \"react-hooks/exhaustive-deps\": \"warn\"\r\n-  }\r\n-}\n-{\r\n-  \"extends\": [\"eslint:recommended\", \"airbnb\", \"prettier\", \"prettier/react\"],\r\n-  \"plugins\": [\"react-hooks\"],\r\n-  \"env\": {\r\n-    \"browser\": true\r\n-  },\r\n-  \"parser\": \"babel-eslint\",\r\n-  \"rules\": {\r\n-    \"no-plusplus\": [0],\r\n-    \"react/jsx-filename-extension\": [1, { \"extensions\": [\".js\", \".jsx\"] }],\r\n-    \"react/prop-types\": [0],\r\n-    \"react/jsx-props-no-spreading\": [0],\r\n-    \"import/prefer-default-export\": [0],\r\n-    \"react/no-array-index-key\": [0],\r\n-    \"react/no-danger\": [0],\r\n-    \"no-param-reassign\": [0],\r\n-    \"react-hooks/rules-of-hooks\": \"error\",\r\n-    \"react-hooks/exhaustive-deps\": \"warn\"\r\n-  }\r\n }\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1632323618076,

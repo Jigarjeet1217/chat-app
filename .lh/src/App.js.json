@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 6,
+            "activePatchIndex": 16,
             "patches": [
                 {
                     "date": 1632322813766,
@@ -32,6 +32,46 @@
                 {
                     "date": 1632324299983,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,8 @@\n import react from 'react';\n-function App() {\n-  return <div>Hello</div>;\n-}\n+import 'rsuite/dist/styles/rsuite-default.css';\n+import './styles/main.scss';\n \n-export default App;\n-import react from \"react\";\n function App() {\n   return <div>Hello</div>;\n }\n \n"
+                },
+                {
+                    "date": 1632365582635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import react from 'react';\n+import { Switch } from 'react-router';\n+import 'rsuite/dist/styles/rsuite-default.css';\n+import './styles/main.scss';\n+\n+function App() {\n+  return <Switch>juifghrt</Switch>;\n+}\n+\n+export default App;\n"
+                },
+                {
+                    "date": 1632365668476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,14 @@\n import react from 'react';\n-import { Switch } from 'react-router';\n+import { Route, Switch } from 'react-router';\n import 'rsuite/dist/styles/rsuite-default.css';\n import './styles/main.scss';\n \n function App() {\n-  return <Switch>juifghrt</Switch>;\n+  return (\n+    <Switch>\n+      <Route path=\"/\">Hhome</Route>\n+    </Switch>\n+  );\n }\n \n export default App;\n-import react from 'react';\n-import 'rsuite/dist/styles/rsuite-default.css';\n-import './styles/main.scss';\n-\n-function App() {\n-  return <div>Hello</div>;\n-}\n-\n-export default App;\n"
+                },
+                {
+                    "date": 1632365679100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \n function App() {\n   return (\n     <Switch>\n-      <Route path=\"/\">Hhome</Route>\n+      <Route path=\"/\">Home</Route>\n     </Switch>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1632365726275,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import react from 'react';\n+import React from 'react';\n import { Route, Switch } from 'react-router';\n import 'rsuite/dist/styles/rsuite-default.css';\n import './styles/main.scss';\n \n"
+                },
+                {
+                    "date": 1632366697770,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,16 @@\n import React from 'react';\n import { Route, Switch } from 'react-router';\n import 'rsuite/dist/styles/rsuite-default.css';\n+import SignIn from './pages/SignIn';\n import './styles/main.scss';\n \n function App() {\n   return (\n     <Switch>\n-      <Route path=\"/\">Home</Route>\n+      <Route path=\"/signin\">\n+        <SignIn />\n+      </Route>\n     </Switch>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1632366731947,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import React from 'react';\n import { Route, Switch } from 'react-router';\n import 'rsuite/dist/styles/rsuite-default.css';\n+import PrivateRoute from './components/PrivateRoute';\n import SignIn from './pages/SignIn';\n import './styles/main.scss';\n \n function App() {\n@@ -9,8 +10,11 @@\n     <Switch>\n       <Route path=\"/signin\">\n         <SignIn />\n       </Route>\n+      <PrivateRoute>\n+        <Home />\n+      </PrivateRoute>\n     </Switch>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1632366740963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import React from 'react';\n import { Route, Switch } from 'react-router';\n import 'rsuite/dist/styles/rsuite-default.css';\n import PrivateRoute from './components/PrivateRoute';\n+import Home from './pages/Home';\n import SignIn from './pages/SignIn';\n import './styles/main.scss';\n \n function App() {\n"
+                },
+                {
+                    "date": 1632366837680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     <Switch>\n       <Route path=\"/signin\">\n         <SignIn />\n       </Route>\n-      <PrivateRoute>\n+      <PrivateRoute path=\"/\">\n         <Home />\n       </PrivateRoute>\n     </Switch>\n   );\n"
+                },
+                {
+                    "date": 1632367859320,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,23 @@\n+import React from 'react';\n+import { Route, Switch } from 'react-router';\n+import 'rsuite/dist/styles/rsuite-default.css';\n+import PrivateRoute from './components/PrivateRoute';\n+import PublicRoute from './components/PublicRoute';\n+import Home from './pages/Home';\n+import SignIn from './pages/SignIn';\n+import './styles/main.scss';\n+\n+function App() {\n+  return (\n+    <Switch>\n+      <PublicRoute path=\"/signin\">\n+        <SignIn />\n+      </PublicRoute>\n+      <PrivateRoute path=\"/\">\n+        <Home />\n+      </PrivateRoute>\n+    </Switch>\n+  );\n+}\n+\n+export default App;\n"
+                },
+                {
+                    "date": 1632367867203,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from 'react';\n-import { Route, Switch } from 'react-router';\n+import { Switch } from 'react-router';\n import 'rsuite/dist/styles/rsuite-default.css';\n import PrivateRoute from './components/PrivateRoute';\n import PublicRoute from './components/PublicRoute';\n import Home from './pages/Home';\n"
                 }
             ],
             "date": 1632322813766,

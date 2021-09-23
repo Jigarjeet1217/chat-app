@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/pages/Home.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1632366269269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1632366269269,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\n\r\nconst Home = () => {\r\n  return <div>Im Home component</div>;\r\n};\r\n\r\nexport default Home;\r\n"
+        }
+    ]
+}

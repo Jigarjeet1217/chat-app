@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/PublicRoute.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1632367735354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1632367821285,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,10 @@\n   // Check for profile (loggged or not)\r\n   const profile = false;\r\n \r\n   // If profile exist redirect to signin page\r\n-  if (!profile) {\r\n-    return <Redirect to=\"/signin\" />;\r\n+  if (profile) {\r\n+    return <Redirect to=\"/\" />;\r\n   }\r\n \r\n   return <Route {...restProp}>{children}</Route>;\r\n };\r\n"
+                },
+                {
+                    "date": 1632367837745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,8 @@\n const PublicRoute = ({ children, ...restProp }) => {\r\n   // Check for profile (loggged or not)\r\n   const profile = false;\r\n \r\n-  // If profile exist redirect to signin page\r\n   if (profile) {\r\n     return <Redirect to=\"/\" />;\r\n   }\r\n \r\n"
+                }
+            ],
+            "date": 1632367735354,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\nimport { Redirect, Route } from 'react-router';\r\n\r\nconst PublicRoute = ({ children, ...restProp }) => {\r\n  // Check for profile (loggged or not)\r\n  const profile = false;\r\n\r\n  // If profile exist redirect to signin page\r\n  if (!profile) {\r\n    return <Redirect to=\"/signin\" />;\r\n  }\r\n\r\n  return <Route {...restProp}>{children}</Route>;\r\n};\r\n\r\nexport default PublicRoute;\r\n"
+        }
+    ]
+}
