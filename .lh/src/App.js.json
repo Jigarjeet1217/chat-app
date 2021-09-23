@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 16,
+            "activePatchIndex": 17,
             "patches": [
                 {
                     "date": 1632322813766,
@@ -72,6 +72,10 @@
                 {
                     "date": 1632367867203,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from 'react';\n-import { Route, Switch } from 'react-router';\n+import { Switch } from 'react-router';\n import 'rsuite/dist/styles/rsuite-default.css';\n import PrivateRoute from './components/PrivateRoute';\n import PublicRoute from './components/PublicRoute';\n import Home from './pages/Home';\n"
+                },
+                {
+                    "date": 1632369377874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,23 @@\n+import React from 'react';\n+import { Switch } from 'react-router';\n+import 'rsuite/dist/styles/rsuite-default.css';\n+import PrivateRoute from './components/PrivateRoute';\n+import PublicRoute from './components/PublicRoute';\n+import Home from './pages/Home';\n+import SignIn from './pages/SignIn';\n+import './styles/main.scss';\n+\n+function App() {\n+  return (\n+    <Switch>\n+      <PublicRoute path=\"/signin\">\n+        <SignIn />\n+      </PublicRoute>\n+      <PrivateRoute path=\"/\">\n+        <Home />\n+      </PrivateRoute>\n+    </Switch>\n+  );\n+}\n+\n+export default App;\n"
                 }
             ],
             "date": 1632322813766,

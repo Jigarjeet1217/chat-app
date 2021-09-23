@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 4,
+            "activePatchIndex": 13,
             "patches": [
                 {
                     "date": 1632327764651,
@@ -24,6 +24,42 @@
                 {
                     "date": 1632328033956,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,17 +10,4 @@\n };\r\n \r\n // Initialize Firebase get its instance\r\n const app = firebase.initializeApp(config);\r\n-import firebase from 'firebase/app';\r\n-\r\n-const config = {\r\n-  apiKey: 'AIzaSyBKryjfCuRkcdJ78oWP3Rc62sadePOR9ts',\r\n-  authDomain: 'chat-web-app-a7513.firebaseapp.com',\r\n-  projectId: 'chat-web-app-a7513',\r\n-  storageBucket: 'chat-web-app-a7513.appspot.com',\r\n-  messagingSenderId: '402282199602',\r\n-  appId: '1:402282199602:web:0292debad45215e8091a2b',\r\n-};\r\n-\r\n-// Initialize Firebase get its instance\r\n-const app = initializeApp(config);\r\n"
+                },
+                {
+                    "date": 1632371006786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import firebase from 'firebase/app';\r\n+import 'firebase/auth';\r\n \r\n const config = {\r\n   apiKey: 'AIzaSyBKryjfCuRkcdJ78oWP3Rc62sadePOR9ts',\r\n   authDomain: 'chat-web-app-a7513.firebaseapp.com',\r\n@@ -10,4 +11,5 @@\n };\r\n \r\n // Initialize Firebase get its instance\r\n const app = firebase.initializeApp(config);\r\n+export const auth = app.auth();\r\n"
+                },
+                {
+                    "date": 1632371645788,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n \r\n const config = {\r\n   apiKey: 'AIzaSyBKryjfCuRkcdJ78oWP3Rc62sadePOR9ts',\r\n   authDomain: 'chat-web-app-a7513.firebaseapp.com',\r\n+  databaseURL: 'https://chat-web-app-a7513-default-rtdb.firebaseio.com',\r\n   projectId: 'chat-web-app-a7513',\r\n   storageBucket: 'chat-web-app-a7513.appspot.com',\r\n   messagingSenderId: '402282199602',\r\n   appId: '1:402282199602:web:0292debad45215e8091a2b',\r\n"
+                },
+                {
+                    "date": 1632371671988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import firebase from 'firebase/app';\r\n+import { firebase } from 'firebase/app';\r\n import 'firebase/auth';\r\n \r\n const config = {\r\n   apiKey: 'AIzaSyBKryjfCuRkcdJ78oWP3Rc62sadePOR9ts',\r\n"
+                },
+                {
+                    "date": 1632371687355,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { firebase } from 'firebase/app';\r\n+import firebase from 'firebase/app';\r\n import 'firebase/auth';\r\n \r\n const config = {\r\n   apiKey: 'AIzaSyBKryjfCuRkcdJ78oWP3Rc62sadePOR9ts',\r\n"
+                },
+                {
+                    "date": 1632371790930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import firebase from 'firebase/app';\r\n+import firebase from 'firebase/compat/app';\r\n import 'firebase/auth';\r\n \r\n const config = {\r\n   apiKey: 'AIzaSyBKryjfCuRkcdJ78oWP3Rc62sadePOR9ts',\r\n"
+                },
+                {
+                    "date": 1632372352274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,4 +13,5 @@\n \r\n // Initialize Firebase get its instance\r\n const app = firebase.initializeApp(config);\r\n export const auth = app.auth();\r\n+console.log(auth);\r\n"
+                },
+                {
+                    "date": 1632372444379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import firebase from 'firebase/compat/app';\r\n-import 'firebase/auth';\r\n+import 'firebase/compat/auth';\r\n \r\n const config = {\r\n   apiKey: 'AIzaSyBKryjfCuRkcdJ78oWP3Rc62sadePOR9ts',\r\n   authDomain: 'chat-web-app-a7513.firebaseapp.com',\r\n"
+                },
+                {
+                    "date": 1632373457468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import firebase from 'firebase/compat/app';\r\n import 'firebase/compat/auth';\r\n+import 'firebase/compat/database';\r\n \r\n const config = {\r\n   apiKey: 'AIzaSyBKryjfCuRkcdJ78oWP3Rc62sadePOR9ts',\r\n   authDomain: 'chat-web-app-a7513.firebaseapp.com',\r\n@@ -13,5 +14,4 @@\n \r\n // Initialize Firebase get its instance\r\n const app = firebase.initializeApp(config);\r\n export const auth = app.auth();\r\n-console.log(auth);\r\n"
+                },
+                {
+                    "date": 1632373486112,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,4 +14,5 @@\n \r\n // Initialize Firebase get its instance\r\n const app = firebase.initializeApp(config);\r\n export const auth = app.auth();\r\n+export const database = app.database();\r\n"
                 }
             ],
             "date": 1632327764650,
