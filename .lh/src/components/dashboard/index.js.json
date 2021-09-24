@@ -3,11 +3,43 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 8,
             "patches": [
                 {
                     "date": 1632457779540,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1632462128586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,19 @@\n import React from 'react';\r\n+import { Drawer } from 'rsuite';\r\n \r\n const Dashboard = () => {\r\n-  return <div>hello</div>;\r\n+  const { profile } = useProfile();\r\n+  return (\r\n+    <>\r\n+      <Drawer.Header>\r\n+        <Drawer.Title></Drawer.Title>\r\n+      </Drawer.Header>\r\n+\r\n+      <Drawer.Body></Drawer.Body>\r\n+\r\n+      <Drawer.Footer></Drawer.Footer>\r\n+    </>\r\n+  );\r\n };\r\n \r\n export default Dashboard;\r\n"
+                },
+                {
+                    "date": 1632462203392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React from 'react';\r\n import { Drawer } from 'rsuite';\r\n-\r\n+import useProfile from '../../context/Profile.context';\r\n const Dashboard = () => {\r\n   const { profile } = useProfile();\r\n   return (\r\n     <>\r\n"
+                },
+                {
+                    "date": 1632462234384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,20 @@\n+import React from 'react';\r\n+import { Drawer } from 'rsuite';\r\n+import useProfile from '../../context/Profile.context';\r\n+\r\n+const Dashboard = () => {\r\n+  const { profile } = useProfile();\r\n+  return (\r\n+    <>\r\n+      <Drawer.Header>\r\n+        <Drawer.Title></Drawer.Title>\r\n+      </Drawer.Header>\r\n+\r\n+      <Drawer.Body></Drawer.Body>\r\n+\r\n+      <Drawer.Footer></Drawer.Footer>\r\n+    </>\r\n+  );\r\n+};\r\n+\r\n+export default Dashboard;\r\n"
+                },
+                {
+                    "date": 1632462359389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,39 +1,26 @@\n import React from 'react';\r\n-import { Drawer } from 'rsuite';\r\n+import { Button, Drawer } from 'rsuite';\r\n import useProfile from '../../context/Profile.context';\r\n \r\n const Dashboard = () => {\r\n   const { profile } = useProfile();\r\n   return (\r\n     <>\r\n       <Drawer.Header>\r\n-        <Drawer.Title></Drawer.Title>\r\n+        <Drawer.Title>Dashboard</Drawer.Title>\r\n       </Drawer.Header>\r\n \r\n-      <Drawer.Body></Drawer.Body>\r\n+      <Drawer.Body>\r\n+        <h3>Hey, {profile.name}</h3>\r\n+      </Drawer.Body>\r\n \r\n-      <Drawer.Footer></Drawer.Footer>\r\n+      <Drawer.Footer>\r\n+        <Button block color=\"red\" onClick={onSignOut}>\r\n+          Sign Out\r\n+        </Button>\r\n+      </Drawer.Footer>\r\n     </>\r\n   );\r\n };\r\n \r\n export default Dashboard;\r\n-import React from 'react';\r\n-import { Drawer } from 'rsuite';\r\n-import useProfile from '../../context/Profile.context';\r\n-const Dashboard = () => {\r\n-  const { profile } = useProfile();\r\n-  return (\r\n-    <>\r\n-      <Drawer.Header>\r\n-        <Drawer.Title></Drawer.Title>\r\n-      </Drawer.Header>\r\n-\r\n-      <Drawer.Body></Drawer.Body>\r\n-\r\n-      <Drawer.Footer></Drawer.Footer>\r\n-    </>\r\n-  );\r\n-};\r\n-\r\n-export default Dashboard;\r\n"
+                },
+                {
+                    "date": 1632462376687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         <h3>Hey, {profile.name}</h3>\r\n       </Drawer.Body>\r\n \r\n       <Drawer.Footer>\r\n-        <Button block color=\"red\" onClick={onSignOut}>\r\n+        <Button block color=\"red\">\r\n           Sign Out\r\n         </Button>\r\n       </Drawer.Footer>\r\n     </>\r\n"
+                },
+                {
+                    "date": 1632462389555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,26 @@\n+import React from 'react';\r\n+import { Button, Drawer } from 'rsuite';\r\n+import { useProfile } from '../../context/Profile.context';\r\n+\r\n+const Dashboard = () => {\r\n+  const { profile } = useProfile();\r\n+  return (\r\n+    <>\r\n+      <Drawer.Header>\r\n+        <Drawer.Title>Dashboard</Drawer.Title>\r\n+      </Drawer.Header>\r\n+\r\n+      <Drawer.Body>\r\n+        <h3>Hey, {profile.name}</h3>\r\n+      </Drawer.Body>\r\n+\r\n+      <Drawer.Footer>\r\n+        <Button block color=\"red\">\r\n+          Sign Out\r\n+        </Button>\r\n+      </Drawer.Footer>\r\n+    </>\r\n+  );\r\n+};\r\n+\r\n+export default Dashboard;\r\n"
+                },
+                {
+                    "date": 1632462822799,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,26 @@\n+import React from 'react';\r\n+import { Button, Drawer } from 'rsuite';\r\n+import { useProfile } from '../../context/Profile.context';\r\n+\r\n+const Dashboard = ({ onSignOut }) => {\r\n+  const { profile } = useProfile();\r\n+  return (\r\n+    <>\r\n+      <Drawer.Header>\r\n+        <Drawer.Title>Dashboard</Drawer.Title>\r\n+      </Drawer.Header>\r\n+\r\n+      <Drawer.Body>\r\n+        <h3>Hey, {profile.name}</h3>\r\n+      </Drawer.Body>\r\n+\r\n+      <Drawer.Footer>\r\n+        <Button block color=\"red\" onClick={onSignOut}>\r\n+          Sign Out\r\n+        </Button>\r\n+      </Drawer.Footer>\r\n+    </>\r\n+  );\r\n+};\r\n+\r\n+export default Dashboard;\r\n"
+                },
+                {
+                    "date": 1632462842597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,56 +23,4 @@\n   );\r\n };\r\n \r\n export default Dashboard;\r\n-import React from 'react';\r\n-import { Button, Drawer } from 'rsuite';\r\n-import { useProfile } from '../../context/Profile.context';\r\n-\r\n-const Dashboard = () => {\r\n-  const { profile } = useProfile();\r\n-  return (\r\n-    <>\r\n-      <Drawer.Header>\r\n-        <Drawer.Title>Dashboard</Drawer.Title>\r\n-      </Drawer.Header>\r\n-\r\n-      <Drawer.Body>\r\n-        <h3>Hey, {profile.name}</h3>\r\n-      </Drawer.Body>\r\n-\r\n-      <Drawer.Footer>\r\n-        <Button block color=\"red\">\r\n-          Sign Out\r\n-        </Button>\r\n-      </Drawer.Footer>\r\n-    </>\r\n-  );\r\n-};\r\n-\r\n-export default Dashboard;\r\n-import React from 'react';\r\n-import { Button, Drawer } from 'rsuite';\r\n-import useProfile from '../../context/Profile.context';\r\n-\r\n-const Dashboard = () => {\r\n-  const { profile } = useProfile();\r\n-  return (\r\n-    <>\r\n-      <Drawer.Header>\r\n-        <Drawer.Title>Dashboard</Drawer.Title>\r\n-      </Drawer.Header>\r\n-\r\n-      <Drawer.Body>\r\n-        <h3>Hey, {profile.name}</h3>\r\n-      </Drawer.Body>\r\n-\r\n-      <Drawer.Footer>\r\n-        <Button block color=\"red\">\r\n-          Sign Out\r\n-        </Button>\r\n-      </Drawer.Footer>\r\n-    </>\r\n-  );\r\n-};\r\n-\r\n-export default Dashboard;\r\n"
                 }
             ],
             "date": 1632457779540,
