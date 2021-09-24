@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 8,
             "patches": [
                 {
                     "date": 1632457887626,
@@ -28,6 +28,18 @@
                 {
                     "date": 1632458788137,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +1,18 @@\n import React from 'react';\r\n import { Button, Drawer, Icon } from 'rsuite';\r\n+import Dashboard from '.';\r\n import { useModalState } from '../../misc/custom-hooks';\r\n \r\n const DashboardToggle = () => {\r\n-\r\n-  const {isOpen,open,close}=useModalState();\r\n+  const { isOpen, open, close } = useModalState();\r\n   return (\r\n     <>\r\n-      <Button block color=\"blue\">\r\n+      <Button block color=\"blue\" onClick={open}>\r\n         <Icon icon=\"dashboard\" /> Dashboard\r\n       </Button>\r\n-      <Drawer show={} onHide={} placement='left'>\r\n-\r\n+      <Drawer show={isOpen} onHide={close} placement=\"left\">\r\n+        <Dashboard />\r\n       </Drawer>\r\n     </>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1632461364178,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     <>\r\n       <Button block color=\"blue\" onClick={open}>\r\n         <Icon icon=\"dashboard\" /> Dashboard\r\n       </Button>\r\n-      <Drawer show={isOpen} onHide={close} placement=\"left\">\r\n+      <Drawer full show={isOpen} onHide={close} placement=\"left\">\r\n         <Dashboard />\r\n       </Drawer>\r\n     </>\r\n   );\r\n"
+                },
+                {
+                    "date": 1632461569848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,21 @@\n+import React from 'react';\r\n+import { Button, Drawer, Icon } from 'rsuite';\r\n+import Dashboard from '.';\r\n+import { useMediaQuery, useModalState } from '../../misc/custom-hooks';\r\n+\r\n+const DashboardToggle = () => {\r\n+  const { isOpen, open, close } = useModalState();\r\n+  const isMobile = useMediaQuery('(max-width: 992px)');\r\n+  return (\r\n+    <>\r\n+      <Button block color=\"blue\" onClick={open}>\r\n+        <Icon icon=\"dashboard\" /> Dashboard\r\n+      </Button>\r\n+      <Drawer full={isMobile} show={isOpen} onHide={close} placement=\"left\">\r\n+        <Dashboard />\r\n+      </Drawer>\r\n+    </>\r\n+  );\r\n+};\r\n+\r\n+export default DashboardToggle;\r\n"
+                },
+                {
+                    "date": 1632461601778,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,24 +18,4 @@\n   );\r\n };\r\n \r\n export default DashboardToggle;\r\n-import React from 'react';\r\n-import { Button, Drawer, Icon } from 'rsuite';\r\n-import Dashboard from '.';\r\n-import { useModalState } from '../../misc/custom-hooks';\r\n-\r\n-const DashboardToggle = () => {\r\n-  const { isOpen, open, close } = useModalState();\r\n-  return (\r\n-    <>\r\n-      <Button block color=\"blue\" onClick={open}>\r\n-        <Icon icon=\"dashboard\" /> Dashboard\r\n-      </Button>\r\n-      <Drawer full show={isOpen} onHide={close} placement=\"left\">\r\n-        <Dashboard />\r\n-      </Drawer>\r\n-    </>\r\n-  );\r\n-};\r\n-\r\n-export default DashboardToggle;\r\n"
                 }
             ],
             "date": 1632457887626,
