@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/dashboard/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1632457779540,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1632457779540,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\n\r\nconst Dashboard = () => {\r\n  return <div>hello</div>;\r\n};\r\n\r\nexport default Dashboard;\r\n"
+        }
+    ]
+}

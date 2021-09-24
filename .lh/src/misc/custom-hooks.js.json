@@ -1,0 +1,50 @@
+{
+    "sourceFile": "src/misc/custom-hooks.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1632458427573,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1632458438396,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,5 @@\n+import { useState } from 'react';\r\n+\r\n+function useModalState(defaultValue = false) {\r\n+  const [state, setstate] = useState(defaultValue);\r\n+}\r\n"
+                },
+                {
+                    "date": 1632458504329,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n-import { useState } from 'react';\r\n+import { useState, useCallback } from 'react';\r\n \r\n function useModalState(defaultValue = false) {\r\n   const [state, setstate] = useState(defaultValue);\r\n+\r\n+  const open = useCallback(() => {\r\n+    setstate(true);\r\n+  }, []);\r\n }\r\n-function useModalState(defaultValue = false) {\r\n-  const [state, setstate] = useState(defaultValue);\r\n-}\r\n"
+                },
+                {
+                    "date": 1632458514066,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+import { useState, useCallback } from 'react';\r\n+\r\n+function useModalState(defaultValue = false) {\r\n+  const [state, setstate] = useState(defaultValue);\r\n+\r\n+  const open = useCallback(() => {\r\n+    setstate(true);\r\n+  }, []);\r\n+  const close = useCallback(() => {\r\n+    setstate(true);\r\n+  }, []);\r\n+}\r\n"
+                },
+                {
+                    "date": 1632458523761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,11 @@\n \r\n function useModalState(defaultValue = false) {\r\n   const [state, setstate] = useState(defaultValue);\r\n \r\n-  const open = useCallback(() => {\r\n+  const open = useCallback(() => \r\n     setstate(true);\r\n-  }, []);\r\n-  const close = useCallback(() => {\r\n+  , []);\r\n+  const close = useCallback(() => \r\n     setstate(true);\r\n-  }, []);\r\n+  , []);\r\n }\r\n"
+                },
+                {
+                    "date": 1632458530194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,20 +2,7 @@\n \r\n function useModalState(defaultValue = false) {\r\n   const [state, setstate] = useState(defaultValue);\r\n \r\n-  const open = useCallback(() => \r\n-    setstate(true);\r\n-  , []);\r\n-  const close = useCallback(() => \r\n-    setstate(true);\r\n-  , []);\r\n+  const open = useCallback(() => setstate(true), []);\r\n+  const close = useCallback(() => setstate(true), []);\r\n }\r\n-import { useState, useCallback } from 'react';\r\n-\r\n-function useModalState(defaultValue = false) {\r\n-  const [state, setstate] = useState(defaultValue);\r\n-\r\n-  const open = useCallback(() => {\r\n-    setstate(true);\r\n-  }, []);\r\n-}\r\n"
+                },
+                {
+                    "date": 1632458578774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import { useState, useCallback } from 'react';\r\n+\r\n+function useModalState(defaultValue = false) {\r\n+  const [isOpen, setIsOpen] = useState(defaultValue);\r\n+\r\n+  const open = useCallback(() => setIsOpen(true), []);\r\n+  const close = useCallback(() => setIsOpen(false), []);\r\n+\r\n+  return {};\r\n+}\r\n"
+                },
+                {
+                    "date": 1632458597092,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,14 +5,6 @@\n \r\n   const open = useCallback(() => setIsOpen(true), []);\r\n   const close = useCallback(() => setIsOpen(false), []);\r\n \r\n-  return {};\r\n+  return { isOpen, open, close };\r\n }\r\n-import { useState, useCallback } from 'react';\r\n-\r\n-function useModalState(defaultValue = false) {\r\n-  const [state, setstate] = useState(defaultValue);\r\n-\r\n-  const open = useCallback(() => setstate(true), []);\r\n-  const close = useCallback(() => setstate(true), []);\r\n-}\r\n"
+                },
+                {
+                    "date": 1632458611526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { useState, useCallback } from 'react';\r\n \r\n-function useModalState(defaultValue = false) {\r\n+export function useModalState(defaultValue = false) {\r\n   const [isOpen, setIsOpen] = useState(defaultValue);\r\n \r\n   const open = useCallback(() => setIsOpen(true), []);\r\n   const close = useCallback(() => setIsOpen(false), []);\r\n"
+                }
+            ],
+            "date": 1632458427573,
+            "name": "Commit-0",
+            "content": "function useModalState(defaultValue = false) {\r\n  const [state, setstate] = useState(defaultValue);\r\n}\r\n"
+        }
+    ]
+}

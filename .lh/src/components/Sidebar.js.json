@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/components/Sidebar.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1632457662983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1632457713676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,13 @@\n import React from 'react';\r\n \r\n const Sidebar = () => {\r\n-  return <div className=\"h-100 pt-2\"></div>;\r\n+  return (\r\n+    <div className=\"h-100 pt-2\">\r\n+      <div>\r\n+        <DashboardToggle />\r\n+      </div>\r\n+    </div>\r\n+  );\r\n };\r\n \r\n export default Sidebar;\r\n"
+                },
+                {
+                    "date": 1632457721412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n     <div className=\"h-100 pt-2\">\r\n       <div>\r\n         <DashboardToggle />\r\n       </div>\r\n+      Bottom\r\n     </div>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1632457991848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import React from 'react';\r\n+import DashboardToggle from './dashboard/DashboardToggle';\r\n \r\n const Sidebar = () => {\r\n   return (\r\n     <div className=\"h-100 pt-2\">\r\n"
+                }
+            ],
+            "date": 1632457662983,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\n\r\nconst Sidebar = () => {\r\n  return <div className=\"h-100 pt-2\"></div>;\r\n};\r\n\r\nexport default Sidebar;\r\n"
+        }
+    ]
+}

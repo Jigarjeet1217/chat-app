@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/components/dashboard/DashboardToggle.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1632457887626,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1632457898215,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const DashboardToggle = () => {\r\n   return (\r\n     <Fragment>\r\n       <Button block color=\"blue\">\r\n-        <Icon icon=\"dashboard\" />\r\n+        <Icon icon=\"dashboard\" /> Dashboard\r\n       </Button>\r\n     </Fragment>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1632457986529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,14 @@\n-import React, { Fragment } from 'react';\r\n+import React from 'react';\r\n import { Button, Icon } from 'rsuite';\r\n \r\n const DashboardToggle = () => {\r\n   return (\r\n-    <Fragment>\r\n+    <>\r\n       <Button block color=\"blue\">\r\n         <Icon icon=\"dashboard\" /> Dashboard\r\n       </Button>\r\n-    </Fragment>\r\n+    </>\r\n   );\r\n };\r\n \r\n export default DashboardToggle;\r\n"
+                },
+                {
+                    "date": 1632458331443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,14 @@\n import React from 'react';\r\n-import { Button, Icon } from 'rsuite';\r\n+import { Button, Drawer, Icon } from 'rsuite';\r\n \r\n const DashboardToggle = () => {\r\n   return (\r\n     <>\r\n       <Button block color=\"blue\">\r\n         <Icon icon=\"dashboard\" /> Dashboard\r\n       </Button>\r\n+      <Drawer show={} onHide={} placement='left'></Drawer>\r\n     </>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1632458657369,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,19 @@\n import React from 'react';\r\n import { Button, Drawer, Icon } from 'rsuite';\r\n+import { useModalState } from '../../misc/custom-hooks';\r\n \r\n const DashboardToggle = () => {\r\n+\r\n+  const {isOpen,open,close}=useModalState();\r\n   return (\r\n     <>\r\n       <Button block color=\"blue\">\r\n         <Icon icon=\"dashboard\" /> Dashboard\r\n       </Button>\r\n-      <Drawer show={} onHide={} placement='left'></Drawer>\r\n+      <Drawer show={} onHide={} placement='left'>\r\n+\r\n+      </Drawer>\r\n     </>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1632458788137,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +1,18 @@\n import React from 'react';\r\n import { Button, Drawer, Icon } from 'rsuite';\r\n+import Dashboard from '.';\r\n import { useModalState } from '../../misc/custom-hooks';\r\n \r\n const DashboardToggle = () => {\r\n-\r\n-  const {isOpen,open,close}=useModalState();\r\n+  const { isOpen, open, close } = useModalState();\r\n   return (\r\n     <>\r\n-      <Button block color=\"blue\">\r\n+      <Button block color=\"blue\" onClick={open}>\r\n         <Icon icon=\"dashboard\" /> Dashboard\r\n       </Button>\r\n-      <Drawer show={} onHide={} placement='left'>\r\n-\r\n+      <Drawer show={isOpen} onHide={close} placement=\"left\">\r\n+        <Dashboard />\r\n       </Drawer>\r\n     </>\r\n   );\r\n };\r\n"
+                }
+            ],
+            "date": 1632457887626,
+            "name": "Commit-0",
+            "content": "import React, { Fragment } from 'react';\r\nimport { Button, Icon } from 'rsuite';\r\n\r\nconst DashboardToggle = () => {\r\n  return (\r\n    <Fragment>\r\n      <Button block color=\"blue\">\r\n        <Icon icon=\"dashboard\" />\r\n      </Button>\r\n    </Fragment>\r\n  );\r\n};\r\n\r\nexport default DashboardToggle;\r\n"
+        }
+    ]
+}

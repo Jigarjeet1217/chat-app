@@ -3,11 +3,39 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1632366269269,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1632457520038,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import React from 'react';\r\n+import { Grid } from 'rsuite';\r\n \r\n const Home = () => {\r\n-  return <div>Im Home component</div>;\r\n+  return <Grid fluid className=\"h-100\"></Grid>;\r\n };\r\n \r\n export default Home;\r\n"
+                },
+                {
+                    "date": 1632457608204,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,16 @@\n import React from 'react';\r\n-import { Grid } from 'rsuite';\r\n+import { Col, Grid, Row } from 'rsuite';\r\n \r\n const Home = () => {\r\n-  return <Grid fluid className=\"h-100\"></Grid>;\r\n+  return (\r\n+    <Grid fluid className=\"h-100\">\r\n+      <Row>\r\n+        <Col sm={24} md={8}>\r\n+          <SideBar />\r\n+        </Col>\r\n+      </Row>\r\n+    </Grid>\r\n+  );\r\n };\r\n \r\n export default Home;\r\n"
+                },
+                {
+                    "date": 1632457618640,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n   return (\r\n     <Grid fluid className=\"h-100\">\r\n       <Row>\r\n         <Col sm={24} md={8}>\r\n-          <SideBar />\r\n+          <Sidebar />\r\n         </Col>\r\n       </Row>\r\n     </Grid>\r\n   );\r\n"
+                },
+                {
+                    "date": 1632457998889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import React from 'react';\r\n+import { Col, Grid, Row, Sidebar } from 'rsuite';\r\n+\r\n+const Home = () => {\r\n+  return (\r\n+    <Grid fluid className=\"h-100\">\r\n+      <Row>\r\n+        <Col sm={24} md={8}>\r\n+          <Sidebar />\r\n+        </Col>\r\n+      </Row>\r\n+    </Grid>\r\n+  );\r\n+};\r\n+\r\n+export default Home;\r\n"
+                },
+                {
+                    "date": 1632458114648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,21 +1,6 @@\n import React from 'react';\r\n-import { Col, Grid, Row, Sidebar } from 'rsuite';\r\n-\r\n-const Home = () => {\r\n-  return (\r\n-    <Grid fluid className=\"h-100\">\r\n-      <Row>\r\n-        <Col sm={24} md={8}>\r\n-          <Sidebar />\r\n-        </Col>\r\n-      </Row>\r\n-    </Grid>\r\n-  );\r\n-};\r\n-\r\n-export default Home;\r\n-import React from 'react';\r\n+import Sidebar from '../components/Sidebar';\r\n import { Col, Grid, Row } from 'rsuite';\r\n \r\n const Home = () => {\r\n   return (\r\n"
+                },
+                {
+                    "date": 1632458124493,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import React from 'react';\r\n+import { Col, Grid, Row } from 'rsuite';\r\n+import Sidebar from '../components/Sidebar';\r\n+\r\n+const Home = () => {\r\n+  return (\r\n+    <Grid fluid className=\"h-100\">\r\n+      <Row>\r\n+        <Col sm={24} md={8}>\r\n+          <Sidebar />\r\n+        </Col>\r\n+      </Row>\r\n+    </Grid>\r\n+  );\r\n+};\r\n+\r\n+export default Home;\r\n"
+                },
+                {
+                    "date": 1632458179052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,30 +5,13 @@\n const Home = () => {\r\n   return (\r\n     <Grid fluid className=\"h-100\">\r\n       <Row>\r\n-        <Col sm={24} md={8}>\r\n+        <Col xs={24} md={8}>\r\n           <Sidebar />\r\n         </Col>\r\n       </Row>\r\n     </Grid>\r\n   );\r\n };\r\n \r\n export default Home;\r\n-import React from 'react';\r\n-import Sidebar from '../components/Sidebar';\r\n-import { Col, Grid, Row } from 'rsuite';\r\n-\r\n-const Home = () => {\r\n-  return (\r\n-    <Grid fluid className=\"h-100\">\r\n-      <Row>\r\n-        <Col sm={24} md={8}>\r\n-          <Sidebar />\r\n-        </Col>\r\n-      </Row>\r\n-    </Grid>\r\n-  );\r\n-};\r\n-\r\n-export default Home;\r\n"
                 }
             ],
             "date": 1632366269269,
