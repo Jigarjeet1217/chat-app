@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 17,
+            "activePatchIndex": 19,
             "patches": [
                 {
                     "date": 1632322813766,
@@ -76,6 +76,14 @@
                 {
                     "date": 1632369377874,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,23 @@\n+import React from 'react';\n+import { Switch } from 'react-router';\n+import 'rsuite/dist/styles/rsuite-default.css';\n+import PrivateRoute from './components/PrivateRoute';\n+import PublicRoute from './components/PublicRoute';\n+import Home from './pages/Home';\n+import SignIn from './pages/SignIn';\n+import './styles/main.scss';\n+\n+function App() {\n+  return (\n+    <Switch>\n+      <PublicRoute path=\"/signin\">\n+        <SignIn />\n+      </PublicRoute>\n+      <PrivateRoute path=\"/\">\n+        <Home />\n+      </PrivateRoute>\n+    </Switch>\n+  );\n+}\n+\n+export default App;\n"
+                },
+                {
+                    "date": 1632375865893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,67 +2,25 @@\n import { Switch } from 'react-router';\n import 'rsuite/dist/styles/rsuite-default.css';\n import PrivateRoute from './components/PrivateRoute';\n import PublicRoute from './components/PublicRoute';\n+import { ProfileProvider } from './context/profile.context';\n import Home from './pages/Home';\n import SignIn from './pages/SignIn';\n import './styles/main.scss';\n \n function App() {\n   return (\n-    <Switch>\n-      <PublicRoute path=\"/signin\">\n-        <SignIn />\n-      </PublicRoute>\n-      <PrivateRoute path=\"/\">\n-        <Home />\n-      </PrivateRoute>\n-    </Switch>\n+    <ProfileProvider>\n+      <Switch>\n+        <PublicRoute path=\"/signin\">\n+          <SignIn />\n+        </PublicRoute>\n+        <PrivateRoute path=\"/\">\n+          <Home />\n+        </PrivateRoute>\n+      </Switch>\n+    </ProfileProvider>\n   );\n }\n \n export default App;\n-import React from 'react';\n-import { Switch } from 'react-router';\n-import 'rsuite/dist/styles/rsuite-default.css';\n-import PrivateRoute from './components/PrivateRoute';\n-import PublicRoute from './components/PublicRoute';\n-import Home from './pages/Home';\n-import SignIn from './pages/SignIn';\n-import './styles/main.scss';\n-\n-function App() {\n-  return (\n-    <Switch>\n-      <PublicRoute path=\"/signin\">\n-        <SignIn />\n-      </PublicRoute>\n-      <PrivateRoute path=\"/\">\n-        <Home />\n-      </PrivateRoute>\n-    </Switch>\n-  );\n-}\n-\n-export default App;\n-import React from 'react';\n-import { Route, Switch } from 'react-router';\n-import 'rsuite/dist/styles/rsuite-default.css';\n-import PrivateRoute from './components/PrivateRoute';\n-import Home from './pages/Home';\n-import SignIn from './pages/SignIn';\n-import './styles/main.scss';\n-\n-function App() {\n-  return (\n-    <Switch>\n-      <Route path=\"/signin\">\n-        <SignIn />\n-      </Route>\n-      <PrivateRoute path=\"/\">\n-        <Home />\n-      </PrivateRoute>\n-    </Switch>\n-  );\n-}\n-\n-export default App;\n"
+                },
+                {
+                    "date": 1632375956889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { Switch } from 'react-router';\n import 'rsuite/dist/styles/rsuite-default.css';\n import PrivateRoute from './components/PrivateRoute';\n import PublicRoute from './components/PublicRoute';\n-import { ProfileProvider } from './context/profile.context';\n+import { ProfileProvider } from './context/Profile.context';\n import Home from './pages/Home';\n import SignIn from './pages/SignIn';\n import './styles/main.scss';\n \n"
                 }
             ],
             "date": 1632322813766,

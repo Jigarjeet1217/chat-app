@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 13,
+            "activePatchIndex": 27,
             "patches": [
                 {
                     "date": 1632366681156,
@@ -60,6 +60,62 @@
                 {
                     "date": 1632367834356,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,8 @@\n const PrivateRoute = ({ children, ...restProp }) => {\r\n   // Check for profile (loggged or not)\r\n   const profile = false;\r\n \r\n-  // If profile exist redirect to signin page\r\n   if (!profile) {\r\n     return <Redirect to=\"/signin\" />;\r\n   }\r\n \r\n"
+                },
+                {
+                    "date": 1632376217614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,12 @@\n import React from 'react';\r\n import { Redirect, Route } from 'react-router';\r\n+import { ProfileProvider } from '../context/Profile.context';\r\n \r\n const PrivateRoute = ({ children, ...restProp }) => {\r\n   // Check for profile (loggged or not)\r\n+\r\n+  const userProfile = useContext(ProfileProvider);\r\n   const profile = false;\r\n \r\n   if (!profile) {\r\n     return <Redirect to=\"/signin\" />;\r\n"
+                },
+                {
+                    "date": 1632376236824,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import React from 'react';\r\n+import React, { useContext } from 'react';\r\n import { Redirect, Route } from 'react-router';\r\n import { ProfileProvider } from '../context/Profile.context';\r\n \r\n const PrivateRoute = ({ children, ...restProp }) => {\r\n"
+                },
+                {
+                    "date": 1632376264870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \r\n const PrivateRoute = ({ children, ...restProp }) => {\r\n   // Check for profile (loggged or not)\r\n \r\n-  const userProfile = useContext(ProfileProvider);\r\n+  const profile = useContext(ProfileProvider);\r\n   const profile = false;\r\n \r\n   if (!profile) {\r\n     return <Redirect to=\"/signin\" />;\r\n"
+                },
+                {
+                    "date": 1632376287151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n const PrivateRoute = ({ children, ...restProp }) => {\r\n   // Check for profile (loggged or not)\r\n \r\n   const profile = useContext(ProfileProvider);\r\n-  const profile = false;\r\n \r\n   if (!profile) {\r\n     return <Redirect to=\"/signin\" />;\r\n   }\r\n"
+                },
+                {
+                    "date": 1632376321761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,8 @@\n import { Redirect, Route } from 'react-router';\r\n import { ProfileProvider } from '../context/Profile.context';\r\n \r\n const PrivateRoute = ({ children, ...restProp }) => {\r\n-  // Check for profile (loggged or not)\r\n-\r\n   const profile = useContext(ProfileProvider);\r\n \r\n   if (!profile) {\r\n     return <Redirect to=\"/signin\" />;\r\n"
+                },
+                {
+                    "date": 1632456260970,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { Redirect, Route } from 'react-router';\r\n import { ProfileProvider } from '../context/Profile.context';\r\n \r\n const PrivateRoute = ({ children, ...restProp }) => {\r\n-  const profile = useContext(ProfileProvider);\r\n+  const { profile } = useContext(ProfileProvider);\r\n \r\n   if (!profile) {\r\n     return <Redirect to=\"/signin\" />;\r\n   }\r\n"
+                },
+                {
+                    "date": 1632456430165,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,24 @@\n+import React, { useContext } from 'react';\r\n+import { Redirect, Route } from 'react-router';\r\n+import { Container, Loader } from 'rsuite';\r\n+import { ProfileProvider } from '../context/Profile.context';\r\n+\r\n+const PrivateRoute = ({ children, ...restProp }) => {\r\n+  const { profile, isLoading } = useContext(ProfileProvider);\r\n+\r\n+  if (isLoading && !profile) {\r\n+    return (\r\n+      <Container>\r\n+        <Loader center vertical size=\"md\" speed=\"slow\" content=\"Loading\" />\r\n+      </Container>\r\n+    );\r\n+  }\r\n+\r\n+  if (!profile) {\r\n+    return <Redirect to=\"/signin\" />;\r\n+  }\r\n+\r\n+  return <Route {...restProp}>{children}</Route>;\r\n+};\r\n+\r\n+export default PrivateRoute;\r\n"
+                },
+                {
+                    "date": 1632456445503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,19 +21,4 @@\n   return <Route {...restProp}>{children}</Route>;\r\n };\r\n \r\n export default PrivateRoute;\r\n-import React, { useContext } from 'react';\r\n-import { Redirect, Route } from 'react-router';\r\n-import { ProfileProvider } from '../context/Profile.context';\r\n-\r\n-const PrivateRoute = ({ children, ...restProp }) => {\r\n-  const { profile } = useContext(ProfileProvider);\r\n-\r\n-  if (!profile) {\r\n-    return <Redirect to=\"/signin\" />;\r\n-  }\r\n-\r\n-  return <Route {...restProp}>{children}</Route>;\r\n-};\r\n-\r\n-export default PrivateRoute;\r\n"
+                },
+                {
+                    "date": 1632456470627,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n       </Container>\r\n     );\r\n   }\r\n \r\n-  if (!profile) {\r\n+  if (!profile && !isLoading) {\r\n     return <Redirect to=\"/signin\" />;\r\n   }\r\n \r\n   return <Route {...restProp}>{children}</Route>;\r\n"
+                },
+                {
+                    "date": 1632456557345,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,24 @@\n+import React, { useContext } from 'react';\r\n+import { Redirect, Route } from 'react-router';\r\n+import { Container, Loader } from 'rsuite';\r\n+import { ProfileProvider } from '../context/Profile.context';\r\n+\r\n+const PrivateRoute = ({ children, ...restProp }) => {\r\n+  const { profile, isLoading } = useContext(ProfileProvider);\r\n+\r\n+  if (isLoading && !profile) {\r\n+    return (\r\n+      <Container>\r\n+        <Loader center vertical size=\"md\" speed=\"slow\" content=\"Loading\" />\r\n+      </Container>\r\n+    );\r\n+  }\r\n+\r\n+  if (!profile && !isLoading) {\r\n+    return <Redirect to=\"/signin\" />;\r\n+  }\r\n+\r\n+  return <Route {...restProp}>{children}</Route>;\r\n+};\r\n+\r\n+export default PrivateRoute;\r\n"
+                },
+                {
+                    "date": 1632456710970,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import React, { useContext } from 'react';\r\n+import React from 'react';\r\n import { Redirect, Route } from 'react-router';\r\n import { Container, Loader } from 'rsuite';\r\n import { ProfileProvider } from '../context/Profile.context';\r\n \r\n@@ -21,28 +21,4 @@\n   return <Route {...restProp}>{children}</Route>;\r\n };\r\n \r\n export default PrivateRoute;\r\n-import React, { useContext } from 'react';\r\n-import { Redirect, Route } from 'react-router';\r\n-import { Container, Loader } from 'rsuite';\r\n-import { ProfileProvider } from '../context/Profile.context';\r\n-\r\n-const PrivateRoute = ({ children, ...restProp }) => {\r\n-  const { profile, isLoading } = useContext(ProfileProvider);\r\n-\r\n-  if (isLoading && !profile) {\r\n-    return (\r\n-      <Container>\r\n-        <Loader center vertical size=\"md\" speed=\"slow\" content=\"Loading\" />\r\n-      </Container>\r\n-    );\r\n-  }\r\n-\r\n-  if (!profile && !isLoading) {\r\n-    return <Redirect to=\"/signin\" />;\r\n-  }\r\n-\r\n-  return <Route {...restProp}>{children}</Route>;\r\n-};\r\n-\r\n-export default PrivateRoute;\r\n"
+                },
+                {
+                    "date": 1632456720827,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,24 @@\n+import React from 'react';\r\n+import { Redirect, Route } from 'react-router';\r\n+import { Container, Loader } from 'rsuite';\r\n+import { ProfileProvider, useProfile } from '../context/Profile.context';\r\n+\r\n+const PrivateRoute = ({ children, ...restProp }) => {\r\n+  const { profile, isLoading } = useProfile();\r\n+\r\n+  if (isLoading && !profile) {\r\n+    return (\r\n+      <Container>\r\n+        <Loader center vertical size=\"md\" speed=\"slow\" content=\"Loading\" />\r\n+      </Container>\r\n+    );\r\n+  }\r\n+\r\n+  if (!profile && !isLoading) {\r\n+    return <Redirect to=\"/signin\" />;\r\n+  }\r\n+\r\n+  return <Route {...restProp}>{children}</Route>;\r\n+};\r\n+\r\n+export default PrivateRoute;\r\n"
+                },
+                {
+                    "date": 1632456729057,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,28 +21,4 @@\n   return <Route {...restProp}>{children}</Route>;\r\n };\r\n \r\n export default PrivateRoute;\r\n-import React from 'react';\r\n-import { Redirect, Route } from 'react-router';\r\n-import { Container, Loader } from 'rsuite';\r\n-import { ProfileProvider } from '../context/Profile.context';\r\n-\r\n-const PrivateRoute = ({ children, ...restProp }) => {\r\n-  const { profile, isLoading } = useContext(ProfileProvider);\r\n-\r\n-  if (isLoading && !profile) {\r\n-    return (\r\n-      <Container>\r\n-        <Loader center vertical size=\"md\" speed=\"slow\" content=\"Loading\" />\r\n-      </Container>\r\n-    );\r\n-  }\r\n-\r\n-  if (!profile && !isLoading) {\r\n-    return <Redirect to=\"/signin\" />;\r\n-  }\r\n-\r\n-  return <Route {...restProp}>{children}</Route>;\r\n-};\r\n-\r\n-export default PrivateRoute;\r\n"
+                },
+                {
+                    "date": 1632456737694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,24 @@\n+import React from 'react';\r\n+import { Redirect, Route } from 'react-router';\r\n+import { Container, Loader } from 'rsuite';\r\n+import { useProfile } from '../context/Profile.context';\r\n+\r\n+const PrivateRoute = ({ children, ...restProp }) => {\r\n+  const { profile, isLoading } = useProfile();\r\n+\r\n+  if (isLoading && !profile) {\r\n+    return (\r\n+      <Container>\r\n+        <Loader center vertical size=\"md\" speed=\"slow\" content=\"Loading\" />\r\n+      </Container>\r\n+    );\r\n+  }\r\n+\r\n+  if (!profile && !isLoading) {\r\n+    return <Redirect to=\"/signin\" />;\r\n+  }\r\n+\r\n+  return <Route {...restProp}>{children}</Route>;\r\n+};\r\n+\r\n+export default PrivateRoute;\r\n"
                 }
             ],
             "date": 1632366681156,
