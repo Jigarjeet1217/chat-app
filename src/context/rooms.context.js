@@ -5,7 +5,7 @@ import { transformToArray } from '../misc/helpers';
 const RoomsContext = createContext();
 
 export const RoomsProvider = ({ children }) => {
-  const [rooms, setRooms] = useState(null);
+  const [rooms, setRooms] = useState([]);
   useEffect(() => {
     const roomListRef = database.ref('rooms');
     roomListRef.on('value', snap => {
