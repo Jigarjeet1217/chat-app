@@ -5,3 +5,14 @@ export function getNameInitials(name) {
   }
   return words[0][0];
 }
+
+export const transformToArray = snapVal => {
+  return snapVal
+    ? Object.keys(snapVal).map(roomId => {
+        return {
+          ...snapVal[roomId],
+          id: roomId,
+        };
+      })
+    : [];
+};
