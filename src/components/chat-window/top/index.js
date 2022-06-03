@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { memo } from 'react';
+import { useContextSelector } from 'use-context-selector';
+import { CurrentRoomContext } from '../../../context/current-room.context';
 
 const Top = () => {
-  return <div>Top</div>;
+  const name = useContextSelector(CurrentRoomContext, v => v.name);
+
+  return <div>{name}</div>;
 };
 
-export default Top;
+export default memo(Top);
