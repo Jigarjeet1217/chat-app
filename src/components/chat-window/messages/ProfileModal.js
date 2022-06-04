@@ -7,7 +7,7 @@ const { Header, Title, Body, Footer } = Modal;
 
 const ProfileModal = ({ profile, ...btnProps }) => {
   const { isOpen, open, close } = useModalState();
-  const shortName = profile.nickname.split(' ')[0];
+  const shortName = profile.name.split(' ')[0];
   const { name, avatar, createdAt } = profile;
   return (
     <>
