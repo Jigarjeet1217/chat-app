@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Button, Modal } from 'rsuite';
 import { useModalState } from '../../../misc/custom-hooks';
 
@@ -28,4 +28,4 @@ const RoomInfoBtnModal = ({ name, description }) => {
   );
 };
 
-export default RoomInfoBtnModal;
+export default memo(RoomInfoBtnModal);
