@@ -39,7 +39,7 @@ export const ProfileProvider = ({ children }) => {
         });
 
         database.ref('.info/connected').on('value', snap => {
-          if (snap.val() === false) {
+          if (!!snap.val() === false) {
             return;
           }
 
