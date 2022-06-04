@@ -15,9 +15,9 @@ const Top = () => {
   const isMobile = useMediaQuery('(max-width:992px)');
 
   return (
-    <div>
+    <>
       <div className="d-flex justify-content-between align-items-center">
-        <h4>
+        <h4 className="d-flex align-items-center align-items-center text-disappear">
           <Icon
             componentClass={Link}
             to="/"
@@ -37,7 +37,7 @@ const Top = () => {
         <span>Hello</span>
         <RoomInfoBtnModal name={name} description={description} />
       </div>
-    </div>
+    </>
   );
 };
 
