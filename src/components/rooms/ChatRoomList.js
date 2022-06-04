@@ -22,7 +22,7 @@ const ChatRoomList = ({ aboveHeight }) => {
         <Loader center vertical speed="slow" content="Loading" size="md" />
       )}
       {rooms &&
-        rooms.length &&
+        rooms.length > 0 &&
         rooms.map(room => {
           return (
             <Nav.Item

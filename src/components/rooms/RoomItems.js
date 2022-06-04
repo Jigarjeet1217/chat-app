@@ -3,7 +3,7 @@ import TimeAgo from 'timeago-react';
 import ProfileAvatar from '../ProfileAvatar';
 
 const RoomItems = ({ room }) => {
-  const { name, createdAt, lastMessage } = room;
+  const { createdAt, lastMessage, name } = room;
   return (
     <div>
       <div className="d-flex align-items-center justify-content-between">
@@ -21,12 +21,12 @@ const RoomItems = ({ room }) => {
             <div className="d-flex align-items-center">
               <ProfileAvatar
                 src={lastMessage.author.avatar}
-                name={lastMessage.author.name}
+                name={lastMessage.author.nickname}
                 size="sm"
               />
             </div>
             <div className="text-disappear ml-2">
-              <div className="italic">{lastMessage.author.name}</div>
+              <div className="italic">{lastMessage.author.nickname}</div>
               <span>{lastMessage.text}</span>
             </div>
           </>
