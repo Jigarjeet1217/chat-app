@@ -5,7 +5,7 @@ const ConditionalBadge = ({ condition, children }) => {
   return condition ? <Badge content={condition}>{children}</Badge> : children;
 };
 
-const LikeMessage = ({
+const DynamicFunctionality = ({
   isVisible,
   icon,
   tooltip,
@@ -40,4 +40,4 @@ const LikeMessage = ({
   );
 };
 
-export default LikeMessage;
+export default DynamicFunctionality;

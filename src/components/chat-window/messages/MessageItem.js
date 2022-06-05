@@ -6,10 +6,10 @@ import { CurrentRoomContext } from '../../../context/current-room.context';
 import { auth } from '../../../misc/firebase';
 import PresenceDot from '../../PresenceDot';
 import ProfileAvatar from '../../ProfileAvatar';
-import LikeMessage from './LikeMessage';
+import DynamicFunctionality from './DynamicFunctionality';
 import ProfileModal from './ProfileModal';
 
-const MessageItem = ({ message, handleAdmins, handleLike }) => {
+const MessageItem = ({ message, handleAdmins, handleLike, handleDelete }) => {
   const { author, createdAt, text, likes, likeCount } = message;
   const isAdmin = useContextSelector(CurrentRoomContext, v => v.isAdmin);
   const areAdmins = useContextSelector(CurrentRoomContext, v => v.areAdmins);
@@ -51,7 +51,7 @@ const MessageItem = ({ message, handleAdmins, handleLike }) => {
           datetime={createdAt}
           className="font-normal text-black-45 ml-2"
         />
-        <LikeMessage
+        <DynamicFunctionality
           {...(isLiked ? { color: 'red' } : {})}
           isVisible={isHovered}
           icon="heart"
@@ -59,6 +59,14 @@ const MessageItem = ({ message, handleAdmins, handleLike }) => {
           badge={likeCount}
           onClick={() => handleLike(message.id)}
         />
+        {isAuthor && (
+          <DynamicFunctionality
+            isVisible={isHovered}
+            icon="close"
+            tooltip="Delete this nessage"
+            onClick={() => handleDelete(message.id)}
+          />
+        )}
       </div>
       <div>
         <span className="word-break-all">{text}</span>
