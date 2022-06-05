@@ -5,7 +5,7 @@ import ProfileAvatar from '../../ProfileAvatar';
 
 const { Header, Title, Body, Footer } = Modal;
 
-const ProfileModal = ({ profile, ...btnProps }) => {
+const ProfileModal = ({ profile, children, ...btnProps }) => {
   const { isOpen, open, close } = useModalState();
   const shortName = profile.name.split(' ')[0];
   const { name, avatar, createdAt } = profile;
@@ -24,6 +24,7 @@ const ProfileModal = ({ profile, ...btnProps }) => {
           <p>Member since {new Date(createdAt).toLocaleDateString()}</p>
         </Body>
         <Footer>
+          {children}
           <Button block onClick={close}>
             Close
           </Button>
