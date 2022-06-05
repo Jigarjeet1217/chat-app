@@ -4,6 +4,7 @@ import firebase from 'firebase/compat/app';
 import { useParams } from 'react-router-dom';
 import { useProfile } from '../../../context/Profile.context';
 import { database } from '../../../misc/firebase';
+import Attachment from './Attachment';
 
 const assembleMessage = (profile, chatId) => {
   return {
@@ -60,9 +61,40 @@ const Bottom = () => {
     }
   };
 
+  const uploadFiles = useCallback(
+    async files => {
+      setisLoading(true);
+      const updates = {};
+
+      files.forEach(file => {
+        const msgData = assembleMessage(profile, chatId);
+        msgData.file = file;
+        const messageId = database.ref('messages').push().key;
+        updates[`/messages/${messageId}`] = msgData;
+      });
+
+      const lastMsgId = Object.keys(updates).pop();
+
+      updates[`/rooms/${chatId}/lastMessage`] = {
+        ...updates[lastMsgId],
+        msgId: lastMsgId,
+      };
+
+      try {
+        await database.ref().update(updates);
+        setisLoading(true);
+      } catch (error) {
+        setisLoading(true);
+        Alert.error(error.message, 4000);
+      }
+    },
+    [chatId, profile]
+  );
+
   return (
     <div>
       <InputGroup>
+        <Attachment uploadFiles={uploadFiles} />
         <Input
           placeholder="Write a new message here..."
           value={input}
