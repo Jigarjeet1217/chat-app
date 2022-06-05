@@ -21,14 +21,16 @@ const MessageItem = ({ message, handleAdmins, handleLike, handleDelete }) => {
   const isLiked = likes && Object.keys(likes).includes(auth.currentUser.uid);
 
   return (
-    <li className="padded mb-1 cursor-pointer ">
-      <div
-        className="d-flex align-items-center font-bolder mb-1"
-        onMouseOver={() => setIsHovered(true)}
-        onFocus={() => setIsHovered(true)}
-        onMouseOut={() => setIsHovered(false)}
-        onBlur={() => setIsHovered(false)}
-      >
+    <li
+      className={`padded mb-1 cursor-pointer ${
+        isHovered ? 'bg-black-02' : ''
+      } `}
+      onMouseOver={() => setIsHovered(true)}
+      onFocus={() => setIsHovered(true)}
+      onMouseOut={() => setIsHovered(false)}
+      onBlur={() => setIsHovered(false)}
+    >
+      <div className="d-flex align-items-center font-bolder mb-1">
         <PresenceDot uid={author.uid} />
         <ProfileAvatar
           src={author.avatar}
