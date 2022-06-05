@@ -52,7 +52,7 @@ const Attachment = ({ uploadFiles }) => {
     }
   };
   return (
-    <>
+    <div>
       <InputGroup>
         <InputGroup.Button onClick={open}>
           <Icon icon="attachment" />
@@ -90,7 +90,7 @@ const Attachment = ({ uploadFiles }) => {
           </div>
         </Footer>
       </Modal>
-    </>
+    </div>
   );
 };
 

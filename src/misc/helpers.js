@@ -44,3 +44,16 @@ export const getuserUpdates = async (userId, keyToUpdate, value, db) => {
 
   return updates;
 };
+
+export function groupBy(arr, gpkey) {
+  return arr.reduce((res, item) => {
+    const groupingkey = gpkey(item);
+
+    if (!res[groupingkey]) {
+      res[groupingkey] = [];
+    }
+
+    res[groupingkey].push(item);
+    return res;
+  }, {});
+}
