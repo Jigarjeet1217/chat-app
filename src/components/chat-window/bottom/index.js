@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useProfile } from '../../../context/Profile.context';
 import { database } from '../../../misc/firebase';
 import Attachment from './Attachment';
+import Audio from './Audio';
 
 const assembleMessage = (profile, chatId) => {
   return {
@@ -95,6 +96,7 @@ const Bottom = () => {
     <div>
       <InputGroup>
         <Attachment uploadFiles={uploadFiles} />
+        <Audio uploadFiles={uploadFiles} />
         <Input
           placeholder="Write a new message here..."
           value={input}

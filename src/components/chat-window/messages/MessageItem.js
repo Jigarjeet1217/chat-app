@@ -18,6 +18,17 @@ const renderFiles = file => {
       </div>
     );
   }
+
+  if (file.contentType.includes('audio')) {
+    return (
+      // eslint-disable-next-line jsx-a11y/media-has-caption
+      <audio controls>
+        <source src={file.url} type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
+    );
+  }
+
   return (
     // eslint-disable-next-line react/jsx-no-target-blank
     <a href={file.url} target="_blank" rel="noopener nonreferrer" download>
@@ -83,7 +94,7 @@ const MessageItem = ({ message, handleAdmins, handleLike, handleDelete }) => {
             isVisible={isHovered}
             icon="close"
             tooltip="Delete this nessage"
-            onClick={() => handleDelete(message.id)}
+            onClick={() => handleDelete(message.id, file)}
           />
         )}
       </div>
