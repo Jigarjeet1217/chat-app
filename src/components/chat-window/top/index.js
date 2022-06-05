@@ -9,6 +9,7 @@ import RoomInfoBtnModal from './RoomInfoBtnModal';
 
 const Top = () => {
   const name = useContextSelector(CurrentRoomContext, v => v.name);
+  const isAdmin = useContextSelector(CurrentRoomContext, v => v.isAdmin);
   const description = useContextSelector(
     CurrentRoomContext,
     v => v.description
@@ -33,7 +34,7 @@ const Top = () => {
           <span className="text-disappear">{name}</span>
         </h4>
         <ButtonToolbar className="ws-nowrap">
-          <EditRoomDrawer />
+          {isAdmin && <EditRoomDrawer />}
         </ButtonToolbar>
       </div>
       <div className="d-flex justify-content-between align-items-center">
