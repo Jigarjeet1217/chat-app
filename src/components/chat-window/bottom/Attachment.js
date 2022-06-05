@@ -42,9 +42,11 @@ const Attachment = ({ uploadFiles }) => {
 
       const files = await Promise.all(shapePromises);
       await uploadFiles(files);
+      setFileList([]);
       setIsLoading(false);
       close();
     } catch (error) {
+      setFileList([]);
       setIsLoading(false);
       Alert.error(error.message, 4000);
     }
@@ -78,7 +80,7 @@ const Attachment = ({ uploadFiles }) => {
           />
         </Body>
         <Footer>
-          <Button block onClick={onUpload} disabled={isLoading}>
+          <Button block onClick={onUpload} disabled={fileList.length === 0}>
             Send to chat
           </Button>
           <div className="text-right mt-2">

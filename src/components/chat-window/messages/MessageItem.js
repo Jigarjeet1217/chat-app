@@ -7,10 +7,27 @@ import { auth } from '../../../misc/firebase';
 import PresenceDot from '../../PresenceDot';
 import ProfileAvatar from '../../ProfileAvatar';
 import DynamicFunctionality from './DynamicFunctionality';
+import ImageBtnModal from './ImageBtnModal';
 import ProfileModal from './ProfileModal';
 
+const renderFiles = file => {
+  if (file.contentType.includes('image')) {
+    return (
+      <div className="height-220">
+        <ImageBtnModal src={file.url} name={file.name} />
+      </div>
+    );
+  }
+  return (
+    // eslint-disable-next-line react/jsx-no-target-blank
+    <a href={file.url} target="_blank" rel="noopener nonreferrer" download>
+      Download {file.name}
+    </a>
+  );
+};
+
 const MessageItem = ({ message, handleAdmins, handleLike, handleDelete }) => {
-  const { author, createdAt, text, likes, likeCount } = message;
+  const { author, createdAt, text, likes, file, likeCount } = message;
   const isAdmin = useContextSelector(CurrentRoomContext, v => v.isAdmin);
   const areAdmins = useContextSelector(CurrentRoomContext, v => v.areAdmins);
   const [isHovered, setIsHovered] = useState(false);
@@ -71,7 +88,8 @@ const MessageItem = ({ message, handleAdmins, handleLike, handleDelete }) => {
         )}
       </div>
       <div>
-        <span className="word-break-all">{text}</span>
+        {text && <span className="word-break-all">{text}</span>}
+        {file && renderFiles(file)}
       </div>
     </li>
   );
