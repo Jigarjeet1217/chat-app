@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, memo } from 'react';
 import { Alert, Icon, Input, InputGroup } from 'rsuite';
 
 const EditableInput = ({
@@ -7,6 +7,7 @@ const EditableInput = ({
   label = '',
   placeholder = 'Write your value',
   emptyMsg = 'Input is empty ',
+  wrapperClass = '',
   ...inputProps
 }) => {
   const [input, setInput] = useState(initialValue);
@@ -32,7 +33,7 @@ const EditableInput = ({
     setIsEditable(false);
   };
   return (
-    <div>
+    <div className={wrapperClass}>
       {label}
       <InputGroup>
         <Input
@@ -55,4 +56,4 @@ const EditableInput = ({
   );
 };
 
-export default EditableInput;
+export default memo(EditableInput);

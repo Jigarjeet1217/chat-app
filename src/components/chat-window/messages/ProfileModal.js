@@ -11,7 +11,7 @@ const ProfileModal = ({ profile, ...btnProps }) => {
   const { name, avatar, createdAt } = profile;
   return (
     <>
-      <Button {...btnProps} onClick={open}>
+      <Button {...btnProps} onClick={open} onMouseOver={open}>
         {shortName}
       </Button>
       <Modal show={isOpen} onHide={close}>

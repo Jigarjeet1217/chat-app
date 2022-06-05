@@ -4,6 +4,7 @@ import { ButtonToolbar, Icon } from 'rsuite';
 import { useContextSelector } from 'use-context-selector';
 import { CurrentRoomContext } from '../../../context/current-room.context';
 import { useMediaQuery } from '../../../misc/custom-hooks';
+import EditRoomDrawer from './EditRoomDrawer';
 import RoomInfoBtnModal from './RoomInfoBtnModal';
 
 const Top = () => {
@@ -31,7 +32,9 @@ const Top = () => {
           />
           <span className="text-disappear">{name}</span>
         </h4>
-        <ButtonToolbar className="ws-nowrap">TODOS</ButtonToolbar>
+        <ButtonToolbar className="ws-nowrap">
+          <EditRoomDrawer />
+        </ButtonToolbar>
       </div>
       <div className="d-flex justify-content-between align-items-center">
         <span>Hello</span>
