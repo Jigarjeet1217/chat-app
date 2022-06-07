@@ -96,34 +96,31 @@ const Messages = () => {
     [chatId]
   );
 
-  const handleLike = useCallback(
-    async msgId => {
-      const { uid } = auth.currentUser;
-      messageRef = database.ref(`/messages/${msgId}`);
-      let msg;
+  const handleLike = useCallback(async msgId => {
+    const { uid } = auth.currentUser;
+    messageRef = database.ref(`/messages/${msgId}`);
+    let msg;
 
-      await messageRef.transaction(m => {
-        if (m) {
-          if (m.likes && m.likes[uid]) {
-            m.likeCount -= 1;
-            m.likes[uid] = null;
-            msg = 'Like Removed';
-          } else {
-            m.likeCount += 1;
-            if (!m.likes) {
-              m.likes = {};
-            }
-            m.likes[uid] = true;
-            msg = 'Like Added';
+    await messageRef.transaction(m => {
+      if (m) {
+        if (m.likes && m.likes[uid]) {
+          m.likeCount -= 1;
+          m.likes[uid] = null;
+          msg = 'Like Removed';
+        } else {
+          m.likeCount += 1;
+          if (!m.likes) {
+            m.likes = {};
           }
+          m.likes[uid] = true;
+          msg = 'Like Added';
         }
-        return m;
-      });
+      }
+      return m;
+    });
 
-      Alert.info(msg, 4000);
-    },
-    [chatId]
-  );
+    Alert.info(msg, 4000);
+  }, []);
 
   const handleDelete = useCallback(
     async (msgId, file) => {
