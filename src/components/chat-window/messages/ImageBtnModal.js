@@ -13,6 +13,7 @@ const ImageBtnModal = ({ src, name }) => {
         alt={name}
         className="mw-100 mh-100"
         onClick={open}
+        style={{ borderRadius: '5px' }}
       />
       <Modal show={isOpen} onHide={close}>
         <Header>
@@ -20,7 +21,13 @@ const ImageBtnModal = ({ src, name }) => {
         </Header>
         <Body>
           <div>
-            <img src={src} height="100%" width="100%" alt={name} />
+            <img
+              src={src}
+              height="100%"
+              width="100%"
+              alt={name}
+              style={{ borderRadius: '5px' }}
+            />
           </div>
         </Body>
         <Footer>

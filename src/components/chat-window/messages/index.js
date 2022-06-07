@@ -174,7 +174,7 @@ const Messages = () => {
     const items = [];
     Object.keys(groups).forEach(date => {
       items.push(
-        <li key={date} className="text-center mb-1 padded">
+        <li key={date} className="text-center padded">
           {date}
         </li>
       );
@@ -203,7 +203,18 @@ const Messages = () => {
           </Button>
         </li>
       )}
-      {isChatEmpty && <li>No message yet</li>}
+      {isChatEmpty && (
+        <li
+          style={{
+            fontSize: '40px',
+            fontWeight: 100,
+            textAlign: 'center',
+            marginTop: '150px',
+          }}
+        >
+          No message yet...
+        </li>
+      )}
       {canShowMessages && renderMessages()}
     </ul>
   );

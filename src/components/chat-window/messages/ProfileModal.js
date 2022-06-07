@@ -11,16 +11,16 @@ const ProfileModal = ({ profile, children, ...btnProps }) => {
   const { name, avatar, createdAt } = profile;
   return (
     <>
-      <Button {...btnProps} onClick={open} onMouseOver={open}>
+      <Button {...btnProps} onClick={open} style={{ fontWeight: 500 }}>
         {shortName}
       </Button>
       <Modal show={isOpen} onHide={close}>
         <Header>
-          <Title>{shortName} profile</Title>
+          <Title>Viewing {shortName}&apos;s profile</Title>
         </Header>
         <Body className="text-center">
           <ProfileAvatar src={avatar} name={name} />
-          <h4 className="mt-2">{name}</h4>
+          <h4>{name}</h4>
           <p>Member since {new Date(createdAt).toLocaleDateString()}</p>
         </Body>
         <Footer>

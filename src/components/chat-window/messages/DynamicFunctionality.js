@@ -16,7 +16,11 @@ const DynamicFunctionality = ({
   return (
     <div
       className="ml-2"
-      style={{ visibility: isVisible ? 'visible' : 'hidden' }}
+      style={{
+        visibility: isVisible ? 'visible' : 'hidden',
+        fontSize: '12px',
+        marginBottom: '-5px',
+      }}
     >
       <ConditionalBadge condition={badge}>
         <Whisper

@@ -64,20 +64,25 @@ const AvatarUpload = () => {
       );
       await database.ref().update(updates);
       setIsLoading(false);
+      setImg(null);
+      close();
       Alert.info('Avatar has been uploaded', 4000);
     } catch (e) {
       setIsLoading(false);
+      setImg(null);
+      close();
       Alert.error(e.message, 4000);
     }
   };
 
   return (
     <div className="mt-3 text-center">
-      <ProfileAvatar src={profile.avatar} name={profile.nickname} />
+      <ProfileAvatar src={profile.avatar} name={profile.name} />
       <div>
         <label
           htmlFor="avatar_upload"
           className="d-block cursor-pointer padded"
+          style={{ margin: 0 }}
         >
           Select New Avatar
           <input

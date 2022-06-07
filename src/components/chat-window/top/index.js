@@ -18,8 +18,14 @@ const Top = () => {
 
   return (
     <>
-      <div className="d-flex justify-content-between align-items-center">
-        <h4 className="d-flex align-items-center align-items-center text-disappear">
+      <div
+        className="d-flex justify-content-between align-items-center"
+        style={{
+          marginTop: '5px',
+          padding: '10px',
+        }}
+      >
+        <h3 className="d-flex align-items-center align-items-center text-disappear">
           <Icon
             componentClass={Link}
             to="/"
@@ -30,15 +36,19 @@ const Top = () => {
                 ? 'd-inline-block p-0 mb-2 text-blue link-unstyled'
                 : 'd-none'
             }
+            style={{
+              marginTop: '10px',
+              marginRight: '10px',
+            }}
           />
           <span className="text-disappear">{name}</span>
-        </h4>
+        </h3>
         <ButtonToolbar className="ws-nowrap">
           {isAdmin && <EditRoomDrawer />}
         </ButtonToolbar>
       </div>
       <div className="d-flex justify-content-between align-items-center">
-        <span>Hello</span>
+        <span> </span>
         <RoomInfoBtnModal name={name} description={description} />
       </div>
     </>

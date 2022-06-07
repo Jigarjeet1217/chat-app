@@ -13,7 +13,7 @@ const Dashboard = ({ onSignOut }) => {
     try {
       const updates = await getuserUpdates(
         profile.uid,
-        'nickname',
+        'name',
         newData,
         database
       );
@@ -26,23 +26,22 @@ const Dashboard = ({ onSignOut }) => {
   };
   return (
     <>
-      <Drawer.Header>
-        <Drawer.Title>Dashboard</Drawer.Title>
-      </Drawer.Header>
-      <Drawer.Body>
-        <h3>Hey, {profile.nickname}</h3>
+      <Drawer.Body style={{ marginTop: 0, marginBottom: 0, height: 'auto' }}>
+        <h3 style={{ marginTop: '20px' }}>
+          Hey, <span>{profile.name}</span>
+        </h3>
         <ProvideBlock />
         <Divider />
         <EditableInput
-          initialValue={profile.nickname}
+          initialValue={profile.name}
           onSave={onSave}
-          name="nickname"
-          label={<h6 className="mb-2">Nickname</h6>}
+          name="name"
+          label={<h6 className="mb-2">Name</h6>}
         />
         <AvatarUpload />
       </Drawer.Body>
 
-      <Drawer.Footer>
+      <Drawer.Footer className="pt-2">
         <Button block color="red" onClick={onSignOut}>
           Sign Out
         </Button>

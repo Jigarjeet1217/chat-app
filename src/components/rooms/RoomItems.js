@@ -8,12 +8,16 @@ const RoomItems = ({ room }) => {
     <div>
       <div className="d-flex align-items-center justify-content-between">
         <h3 className="text-disappear">{name}</h3>
-        <TimeAgo
-          datetime={
-            lastMessage ? new Date(lastMessage.createdAt) : new Date(createdAt)
-          }
-          className="font-normal text-black-45"
-        />
+        <div style={{ fontSize: '12px' }}>
+          <TimeAgo
+            datetime={
+              lastMessage
+                ? new Date(lastMessage.createdAt)
+                : new Date(createdAt)
+            }
+            className="font-normal text-black-45"
+          />
+        </div>
       </div>
       <div className="d-flex align-items-center text-black-70">
         {lastMessage ? (
@@ -21,12 +25,14 @@ const RoomItems = ({ room }) => {
             <div className="d-flex align-items-center">
               <ProfileAvatar
                 src={lastMessage.author.avatar}
-                name={lastMessage.author.nickname || lastMessage.author.name}
+                name={lastMessage.author.name}
                 size="sm"
               />
             </div>
             <div className="text-disappear ml-2">
-              <div className="italic">{lastMessage.author.nickname}</div>
+              <div className="italic font-bolder">
+                {lastMessage.author.name}
+              </div>
               <span>{lastMessage.text || lastMessage.file.name}</span>
             </div>
           </>

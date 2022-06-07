@@ -84,6 +84,21 @@ $chat-b: 65px;
   }
 }
 
+h1,h2,h3,h4,h5,h6{
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+h1{
+  font-size:26px ;
+}
+h3{
+  font-size: 20px;
+}
+h4{
+  font-weight: 500;
+  font-size: 18px;
+}
+
 .animate-blink {
   animation: blink normal 1.5s infinite ease-in-out;
   color: red !important;
